@@ -13,7 +13,16 @@ const app = express()
 
 // middleware
 app.use(express.json())
-app.use(cors(process.env.FRONTEND_URL ? { origin: process.env.FRONTEND_URL } : undefined))
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  process.env.FRONTEND_URLS,
+  "https://tomato-frontend-chi-fawn.vercel.app",
+]
+  .filter(Boolean)
+  .flatMap((origins) => origins.split(","))
+  .map((origin) => origin.trim().replace(/\/+$/, ""))
+  .filter(Boolean)
+app.use(cors(allowedOrigins.length ? { origin: allowedOrigins } : undefined))
 
 // cache DB connection (serverless optimization)
 let isConnected = false
