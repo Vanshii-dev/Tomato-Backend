@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const backendRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const frontendRoot = path.resolve(process.argv[2] || path.join(backendRoot, "../../Tomato-Frontend"));
+const frontendRoot = path.resolve(process.argv[2] || path.join(backendRoot, "../Tomato-Frontend"));
 const manifestPath = path.join(backendRoot, "scripts/cloudinary-assets-map.json");
 
 function timestamp() {
