@@ -5,7 +5,7 @@ import cloudinary from "../config/cloudinary.js";
 
 const backendRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const frontendRoot = path.resolve(
-  process.argv[2] || path.join(backendRoot, "../../Tomato-Frontend")
+  process.argv[2] || path.join(backendRoot, "../Tomato-Frontend")
 );
 const assetsModulePath = path.join(frontendRoot, "src/assets/assets.js");
 const assetsDirectory = path.join(frontendRoot, "src/assets");
